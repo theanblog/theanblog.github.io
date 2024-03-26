@@ -1,0 +1,38 @@
+:root {
+    --bg-color: #282c35;
+    --text-color: #fff;
+    --prymary-color: #0077cc;
+    --error-color: #ff0000;
+    --sucess-color: #00ff00;
+    font-family: "Source Serif 4", serif;
+    font-optical-sizing: auto;
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+

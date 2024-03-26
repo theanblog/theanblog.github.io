@@ -1,0 +1,85 @@
+---
+const email = "anderson.komercial@gmail.com";
+---
+
+<footer class="my-10 text-white">
+  <hr />
+  <div class="sm:flex sm:justify-center sm:space-x-4 mt-5">
+    <div class="flex text-center justify-center">
+      <a
+        class="hover:underline hover:font-semibold p-2 text-[24px]"
+        href=`mailto:${email}`>Entre em contato comigo!</a
+      >
+    </div>
+    <div class="flex text-center justify-center">
+      <button
+        id="copy-button"
+        class="rounded bg-gray-200 text-[#13151A] text-sm p-2 hover:bg-white"
+        onclick="copyEmail()"
+      >
+        <span class="hover:underline text-[24px]">Copiar email</span>
+        <i class="fa-solid fa-copy" style="color: #13151A;"></i>
+      </button>
+    </div>
+  </div>
+  <div class="bottom-text-footer text-center p-2 md:text-[18px] text-[16px]">
+    <p>
+      Esse é o projeto pessoal que não visa gerar lucros. Sinta-se livre para
+      enviar sugestões ou relatar problemas. Caso você tenha encontrado alguma
+      imagem ou conteúdo que seja de sua autoria que não foi creditado da forma
+      correta ou que você deseja que seja removido, entre em contato comigo que
+      farei a remoção imediatamente.
+    </p>
+    <p>
+      Preguiçosamente feito com <a
+        class="underline cursor-pointer"
+        href="https://astro.build/">Astro</a
+      >.
+    </p>
+  </div>
+  <style>
+    .bottom-text-footer {
+      margin: auto;
+      margin-top: 2rem;
+      padding: 1rem;
+      width: 800px;
+      max-width: calc(100% - 2rem);
+      color: white;
+      line-height: 1.6;
+    }
+  </style>
+  <script is:inline>
+    function copyEmail() {
+      const unsecuredCopyToClipboard = (text) => {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand("copy");
+        } catch (err) {
+          console.error("Unable to copy to clipboard", err);
+        }
+        document.body.removeChild(textArea);
+      };
+      const copyButton = document.getElementById("copy-button");
+      if (window.isSecureContext && navigator.clipboard) {
+        navigator.clipboard.writeText("anderson.komercial@gmail.com").then(
+          function () {
+            copyButton.innerHTML = "Email copiado!";
+            setTimeout(() => {
+              copyButton.innerHTML =
+                '<span class="hover:underline pr-1">Copiar email</span><i class="fa-solid fa-copy" style="color: #13151A;"></i>';
+            }, 2000);
+          },
+          function (err) {
+            console.error("Async: Could not copy text: ", err);
+          }
+        );
+      } else {
+        unsecuredCopyToClipboard("anderson.komercial@gmail.com");
+      }
+    }
+  </script>
+</footer>

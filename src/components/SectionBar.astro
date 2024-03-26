@@ -1,0 +1,37 @@
+---
+import AboutMeWidget from "./AboutMeWidget.astro";
+interface Props {
+  links: {
+    href: string;
+    text: string;
+  }[];
+  classes: string;
+}
+
+const { links = [], classes = "" } = Astro.props;
+---
+
+<aside class=` lg:h-screen lg:sticky lg:top-12 mb-8 lg:mb-0 ${classes}`>
+  {
+    links.length != 0 && (
+      <nav class="md:gap-2 md:p-7 p-2 md:px-7 px-6 border rounded-xl text-[23px] text-left">
+        <span class="text-gray-200 font-bold">Seções:</span>
+        <ul class="list-disc ml-6">
+          {links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-100 hover:text-gray-300 hover:underline mr-4"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+  <div class="hidden lg:block">
+    <AboutMeWidget marginTop="mt-12" classes="max-w-[425px] text-[16px]" />
+  </div>
+</aside>

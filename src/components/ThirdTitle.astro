@@ -1,0 +1,12 @@
+---
+interface Props {
+  title:string;
+  anchorId:string;
+  anchorText:string;
+}
+const { title,anchorId,anchorText } = Astro.props;
+---
+<>
+    <h3 id=`${anchorId}`>{title}</h3>
+    <hr class="mb-3"/>
+</>

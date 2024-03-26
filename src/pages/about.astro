@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Sobre mim";
+const me = {
+  name: "José",
+  hobbies: [
+    "movies",
+    "animes",
+    "mangas",
+    "books",
+    "waste time on social media",
+  ],
+};
+
+const links = [
+  {
+    ref: "GitHub",
+    icon: "#",
+    link: "https://github.com/andersoncstd",
+  },
+  {
+    ref: "MyAnimeList",
+    icon: "#",
+    link: "https://myanimelist.net/profile/k0yomiArararagi",
+  },
+  {
+    ref: "LetterBox",
+    icon: "#",
+    link: "#",
+  },
+];
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JS",
+  "PHP",
+  "Laravel",
+  "Tailwind",
+  "MYSQL",
+  "Docker",
+  "Linux",
+  "Shell Script",
+];
+
+const showSetup = "true";
+---
+
+<body>
+  <Layout title={pageTitle}>
+    <main class="md:w-[800px] md:text-[24px]">
+      <h1 class="text-3xl font-bold">{pageTitle}</h1>
+      <span>Um pouco sobre o mim e o meu blog!</span>
+      <div class="mt-7">
+        <p>
+          Acredito que a tecnologia pode tornar o mundo um lugar melhor (ou
+          torná-lo uma grande distopia <i>cyberpunk</i>). Defendemos o uso do <i
+            >software</i
+          > livre e de código aberto, de forma pragmática, para trazer liberdade
+          aos usuários e reduzir custos para empresas e governos. As matérias e artigos
+          publicados aqui são parte de um estudo de seu criador com o intuito de
+          melhorar as <i>skills</i>
+          de escrita (português e inglês), argumentação e uma forma de aprofundar
+          os conhecimentos em programação e em outras áreas.
+        </p>
+        <p>
+          Esse blog é um espaço para compartilhar conhecimento, experiências e
+          ideias sobre tecnologia, programação, <i>software</i> livre e outros assuntos
+          relacionados. Esperamos que você goste do conteúdo e que ele seja útil
+          para você. Se tiver alguma sugestão, crítica ou dúvida, por favor, entre
+          em contato conosco, (CHAT-GPT 3.5, 2024).
+        </p>
+      </div>
+      <div class="mt-7">
+        <h2 class="text-2xl font-bold">Sobre o autor</h2>
+        <p>
+          Hihi! Meu nome é {me.name}, sou Bacharel em Sistemas de Informação. Já
+          trabalhei com manutenção de computadores, desenvolvimento de <i
+            >software</i
+          >
+          e captação de recursos por meio da elaboração de projetos socias.
+        </p>
+        <p>Aqui estão alguns dos meu perfis e páginas na internet:</p>
+        <ul class="pl-4 list-disc">
+          {
+            links.map((link) => (
+              <li class="hover:underline ">
+                <a href={link.link}>{link.ref}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      {
+        showSetup && (
+          <div class="mt-7">
+            <h3 class="text-lg font-semibold">Meu setup atual</h3>
+            <ul class="pl-4 list-disc">
+              <li>Hardware: Acer Nitro 5, i5 11400h, GTX 1650 e 16GB de RAM;</li>
+              <li>S.O: POP_os!</li>
+            </ul>
+          </div>
+        )
+      }
+    </main>
+  </Layout>
+
+  <style>
+    main {
+      margin: auto;
+      padding: 1rem;
+      max-width: calc(100% - 2rem);
+      color: white;
+      line-height: 1.6;
+    }
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+  </style>
+</body>
