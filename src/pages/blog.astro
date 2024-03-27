@@ -8,20 +8,28 @@ import Layout from "../layouts/Layout.astro";
       <h1>Todos os posts</h1>
       <p>As postagens foram divididas em tópicos para uma melhor navegação:</p>
       <ul class="list-disc pl-4">
-        <li><a href="/posts/post-1/">Postagem 1</a></li>
+        <span>Tecnologia</span>
+        <ul class="list-disc pl-4">
+          <li>
+            <a class="text-gray-400" href="#"
+              >Em breve: NixOS - um mundo novo!</a
+            >
+          </li>
+        </ul>
+        <hr class="my-8" />
         <li>
-          <a href="/posts/post-2/">Review de Filmes</a>
+          <span>Review de Filmes</span>
           <ul class="list-disc pl-4">
             <li>
-              <a
-                href="/posts/movie-review/eternal-sunshine-of-the-spotless-mind_2004/"
-                >Eternal Sunshine of the Spotless Mind (O Brilho Eterno de uma
-                Mente sem Lembranças) - 2004</a>
+              <a href="/posts/movie-review/sorcerer-1977/"
+                >Sorcerer (O Comboio do Medo) - 1977</a
+              >
             </li>
             <li>
-              <a
-                href="/posts/movie-review/sorcerer-1977/"
-                >Sorcerer (O Comboio do Medo) - 1977</a>
+              <a class="text-gray-400" href="#"
+                >Em breve: Eternal Sunshine of the Spotless Mind (O Brilho
+                Eterno de uma Mente sem Lembranças) - 2004</a
+              >
             </li>
           </ul>
         </li>
@@ -44,8 +52,7 @@ import Layout from "../layouts/Layout.astro";
     text-align: justify;
   }
   a:hover {
-    text-decoration:underline;
-    font-weight:500;
-    
+    text-decoration: underline;
+    font-weight: 500;
   }
 </style>
