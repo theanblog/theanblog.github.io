@@ -14,7 +14,7 @@ const email = "anderson.komercial@gmail.com";
     <div class="flex text-center justify-center">
       <button
         id="copy-button"
-        class="rounded bg-gray-200 text-[#13151A] text-sm p-2 hover:bg-white"
+        class="rounded bg-gray-200 text-[#13151A] text-sm p-2 hover:bg-white text-[24px]"
         onclick="copyEmail()"
       >
         <span class="hover:underline text-[24px]">Copiar email</span>
@@ -70,7 +70,7 @@ const email = "anderson.komercial@gmail.com";
             copyButton.innerHTML = "Email copiado!";
             setTimeout(() => {
               copyButton.innerHTML =
-                '<span class="hover:underline pr-1">Copiar email</span><i class="fa-solid fa-copy" style="color: #13151A;"></i>';
+                '<span class="hover:underline pr-1 text-[24px]">Copiar email</span><i class="fa-solid fa-copy text-[24px]" style="color: #13151A;"></i>';
             }, 2000);
           },
           function (err) {
