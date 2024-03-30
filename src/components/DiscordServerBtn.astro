@@ -1,0 +1,11 @@
+---
+interface Props {
+    title: string;
+    classes: string;
+}
+const { title,classes }: Props = Astro.props;
+---
+<button class=`bg-white rounded lg:text-lg lg:w-full text-black px-5 py-2 ${classes} hover:underline hover:bg-gray-200 hover:font-semibold` >
+    {title}
+    <i class="fa-brands fa-discord text-lg pl-3" style="color: #282c35;"></i>
+</button>
