@@ -1,5 +1,6 @@
 ---
 import AboutMeWidget from "./AboutMeWidget.astro";
+import DiscordServerBtn from "./DiscordServerBtn.astro";
 interface Props {
   links: {
     href: string;
@@ -11,7 +12,7 @@ interface Props {
 const { links = [], classes = "" } = Astro.props;
 ---
 
-<aside class=` lg:h-screen lg:sticky lg:top-12 mb-8 lg:mb-0 ${classes}`>
+<aside class=` lg:h-screen lg:sticky lg:top-9 mb-12 ${classes} overflow-scroll no-scrollbar`>
   {
     links.length != 0 && (
       <nav class="md:gap-2 md:p-7 p-2 md:px-7 px-6 border rounded-xl text-[23px] text-left">
@@ -31,7 +32,22 @@ const { links = [], classes = "" } = Astro.props;
       </nav>
     )
   }
-  <div class="hidden lg:block">
-    <AboutMeWidget marginTop="mt-12" classes="max-w-[425px] text-[16px]" />
+  <div class="hidden lg:block mt-12">
+    <AboutMeWidget marginTop="mt-15" classes="max-w-[425px] text-[16px]" />
+  </div>
+  <div class="lg:mt-12 mt-1 hidden lg:block">
+    <DiscordServerBtn title="Entre no meu servidor no Discord!" classes="" />
   </div>
 </aside>
+<style>
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
