@@ -1,98 +1,66 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import BlogPost from "../components/BlogPost.astro";
+import MainAside from "../components/MainAside.astro";
+import AboutMeWidget from "../components/AboutMeWidget.astro";
+import DiscordServerBtn from "../components/DiscordServerBtn.astro";
 
 const pageTitle = "Seja bem-vindo ao blog AN";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="md:w-[800px] text-center">
-    <h1>{pageTitle}</h1>
-    <span>Confira os últimos posts!</span>
-    <div class="my-16">
-      <div class="flex space-x-5">
-        <img
-          class="max-h-[400px] rounded-xl"
-          src="https://m.media-amazon.com/images/M/MV5BMTQ5ODA1NDk0Nl5BMl5BanBnXkFtZTgwNTc0OTIwOTE@._V1_.jpg"
-          alt="Pôster do filme Sorcerer."
-        />
-        <div class="mt-auto">
-          <a href="#">
-            <p
-              class="text-[60px] text-left leading-[4rem] hover:underline line-clamp-4"
-              style="font-weight:700"
-            >
-              Sorcerer - 1977, e sua adaptação da Netflix
-            </p>
-          </a>
-          <hr />
-          <p class="text-left">Redação | 01/04/2024</p>
-          <p class="text-left">
-            Tags: <b
-              class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-              >review</b
-            >
-            <b
-              class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-              >netflix</b
-            ><b
-              class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-              >clássicos</b
-            >
-            <b
-              class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-              >adaptação</b
-            >
-          </p>
-        </div>
-      </div>
-    </div>
+  <main class="text-justify lg:flex justify-center lg:space-x-24">
+    <MainAside classes=" lg:hidden block" />
+    <div class="lg:w-[800px]">
+      <h1>{pageTitle}</h1>
+      <span>Tecnologia, cinema e cultura pop!</span>
+      <BlogPost
+        title="Sorcerer, um clássico adaptado pela Netflix"
+        img_alt="Pôster do filme: Sorcerer - 1977"
+        img_src_desktop="/public/sorcerer-1.png"
+        img_src_mobile="/public/sorcerer-2.jpg"
+        post_link="/posts/movie-review/sorcerer-1977"
+        autor="Redação"
+        date="01/04/2024"
+        tags={["review", "netflix", "clássicos", "tensão"]}
+      />
 
-	<div class="my-16">
-		<div class="flex space-x-5">
-		  <img
-			class="max-h-[400px] rounded-xl"
-			src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Flinuxforeveryone%2Fhow-to-sync-all-your-stuff-with-syncthing-linux-android-guide-536fe61d68df&psig=AOvVaw3xrJqMJTh2TTO4N9yqu8cF&ust=1711759426588000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLCpxfiemIUDFQAAAAAdAAAAABAG"
-			alt="Pôster do filme Sorcerer."
-		  />
-		  <div class="mt-auto">
-			<a href="#">
-			  <p
-				class="text-[60px] text-left leading-[4rem] hover:underline line-clamp-4"
-				style="font-weight:700"
-			  >
-			  As melhores opções para compartilhar arquivos entre o smartphone e o PC
-			  </p>
-			</a>
-			<hr />
-			<p class="text-left">Redação | 01/04/2024</p>
-			<p class="text-left">
-			  Tags: <b
-				class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-				>review</b
-			  >
-			  <b
-				class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-				>netflix</b
-			  ><b
-				class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-				>clássicos</b
-			  >
-			  <b
-				class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal"
-				>adaptação</b
-			  >
-			</p>
-		  </div>
-		</div>
-	  </div>
+      <BlogPost
+        title="Como sincronizar arquivos entre e o celular o PC com o Syncthing"
+        img_alt="Interface do syncthing"
+        img_src_desktop="/public/synthing-1.png"
+        img_src_mobile="/public/synthing-2.png"
+        post_link="/syncthing"
+        autor="Redação"
+        date="01/04/2024"
+        tags={["tecnologia", "aplicativos", "celular", "linux"]}
+      />
+
+      <BlogPost
+        title="Uma metáfora para os relacionamentos e para a vida..."
+        img_alt="Pôster do filme: O brilho eterno de uma mente sem lembranças"
+        img_src_desktop="/public/eternal-sunshine-1.png"
+        img_src_mobile="/public/eternal-sunshine-2.jpg"
+        post_link="/eternal-sunshine"
+        autor="Redação"
+        date="01/04/2024"
+        tags={["review", "romance", "clássicos", "filosofia"]}
+      />
+    </div>
+    <MainAside classes="hidden lg:block" />
+    <div class=" mt-7 border border-white rounded p-7 lg:hidden block">
+      <AboutMeWidget classes="text-[19px]"  />
+    </div>
+    <div class="mt-12 lg:hidden block text-xl">
+      <DiscordServerBtn title="Entre no meu servidor no Discord!" classes="w-full"/>
+    </div>
   </main>
 </Layout>
 
 <style>
   main {
     margin: auto;
-    padding: 1rem;
     max-width: calc(100% - 2rem);
     color: white;
     font-size: 20px;

@@ -1,0 +1,63 @@
+---
+interface Props {
+  img_src_desktop: string;
+  img_src_mobile: string;
+  img_alt: string;
+  title: string;
+  post_link: string;
+  autor: string;
+  date: string;
+  tags: string[];
+}
+const {
+  img_src_desktop,
+  img_src_mobile,
+  img_alt,
+  title,
+  post_link,
+  autor,
+  date,
+  tags,
+}: Props = Astro.props;
+---
+
+<div class="my-16">
+  <div class="md:flex md:space-x-5">
+    <div class="md:block flex justify-center">
+      <img
+        class="md:max-h-[400px] hidden md:block max-w-[300px] rounded-xl"
+        src=`${img_src_desktop}`
+        alt=`${img_alt}`
+      />
+      <img
+        class="md:max-h-[720px] block md:hidden max-w-[300px] rounded-xl"
+        src=`${img_src_mobile}`
+        alt=`${img_alt}`
+      />
+    </div>
+    <div class="mt-auto md:block flex justify-center">
+      <div>
+        <a href=`${post_link}`>
+          <h3
+            class="md:mt-[2rem] mt-[10px] md:text-[60px] text-[35px] md:text-left text-center md:leading-[4rem] leading-[3rem] hover:underline md:line-clamp-4 line-clamp-3"
+            style="font-weight:700"
+          >
+            {title}
+          </h3>
+        </a>
+        <hr />
+        <p class="md:text-left text-center">{autor} | {date}</p>
+        <p class="md:text-left text-center">
+          Tags:
+          {
+            tags.map((tag) => (
+              <b class="hover:underline rounded bg-[#121d35] mx-1 px-1 font-normal">
+                {tag}
+              </b>
+            ))
+          }
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
